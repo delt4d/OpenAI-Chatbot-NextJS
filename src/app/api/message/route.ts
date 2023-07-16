@@ -26,7 +26,7 @@ export async function POST(req: Request) {
         top_p: 1,
         frequency_penalty: 0,
         presence_penalty: 0,
-        max_tokens: 350,
+        max_tokens: (process.env.OPENAI_MAX_TOKENS || 0) as number,
         stream: true,
         n: 1,
     };
