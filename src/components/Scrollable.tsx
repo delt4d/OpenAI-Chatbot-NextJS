@@ -15,14 +15,6 @@ const Scrollable: FC<ScrollableProps> = ({ className, children, scrollX: overflo
         setIsDragging(false);
     };
 
-    const handleMouseLeave = () => {
-        setIsDragging(false);
-    }
-
-    const handleMouseHover = () => {
-        setIsDragging(true);
-    }
-
     const handleMouseMove = (event: MouseEvent) => {
         if (!isDragging) return;
         const deltaX = event.clientX - dragStartPosition[0];
@@ -42,8 +34,6 @@ const Scrollable: FC<ScrollableProps> = ({ className, children, scrollX: overflo
             {...props}
             onMouseMove={handleMouseMove}
             onMouseUp={handleMouseUp}
-            onMouseLeave={handleMouseLeave}
-            onMouseOver={handleMouseHover}
             onMouseDown={handleMouseDown}
             className={cn(`overflow-x-${overflowX}`, `overflow-y-${overflowY}`, className)}
         >
